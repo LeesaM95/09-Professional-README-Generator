@@ -1,82 +1,28 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(data) {
-let value = `${data.license}`;
-console.log(data.license)
-let licenseLink = '';
-    if(value === 'MIT License'){
-        value = 'MIT License'
-        licenseLink = "![License: MIT]https://www.mit.edu/~amini/LICENSE.md"
-    } else if (value === 'GNU License v3.0') {
-        value = 'GNU License v3.0'
-        licenseLink = "![License: GNU v3.0]https://www.gnu.org/licenses/gpl-3.0.txt";
-    } else if (value === 'Apache License 2.0') {
-        value = 'Apache License 2.0'
-        licenseLink = "![License: Apace v2.0]https://www.apache.org/licenses/LICENSE-2.0.txt"
-    } else if (value === 'BSD 2-Clause License') {
-        value = 'BSD 2-Clause License'
-        licenseLink = "![License: BSD 2-Clause]https://opensource.org/license/bsd-2-clause";
-    } else if (value === 'BSD 3-Clause License') {
-        value = 'BSD 3-Clause License'
-        licenseLink = "![License: BSD 3-Clause]https://opensource.org/license/bsd-3-clause"
-    } else if (value === 'Boost Software License') {
-        value = 'Boost Software License'
-        licenseLink = "![License: Boost Software]https://www.boost.org/LICENSE_1_0.txt"
-    } else if (value === 'Creative Commons v1.0') {
-        value = 'Creative Commons v1.0'
-        licenseLink ="![License: Creative Commons]https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt"
-    } else if (value === 'Eclipse Public') {
-        value = 'Eclipse Public'
-        licenseLink = "![License: Eclipse]https://www.eclipse.org/legal/epl-v10.html"
-    } else if (value === 'GNU Affero v3.0') {
+const renderLicenseBadge = (license) => {
+    license === 'None'
+    ? ""
+    : `![License](https://img.shielfs.io/badge/license-${license}-blue.svg)`;
+};
 
-        licenseLink = "![License: GNU Affero]https://www.gnu.org/licenses/agpl-3.0.txt"
-    } else if (value === 'GNU Lesser v2.1') {
-        value = 'GNU Lesser v2.1'
-        licenseLink = "![License: GNU Lesser]https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt"
-    } else if (value === 'Mozilla Public') {
-        value = 'Mozilla Public'
-        licenseLink = "![License: Mozilla Public]https://www.mozilla.org/en-US/MPL/2.0/"
-    } else if (value === 'The Unlicense License') {
-        value = 'The Unlicense License'
-        licenseLink = "![License: The Unlicense]https://choosealicense.com/licenses/unlicense/"
-    } else {
-        value = "";
-        licenseLink = ""
-    }
+const renderLicenseLink = (license) => {
+    license === 'None' ? "" : `[License](#license)`
+};
+
+const renderLicenseSection = (license) => {
+    license === 'None'
+    ? ""
+    : `This software/code is licensed under ${license}.
+    To use this software/code, you must agree to follow and comply with license's Terms and Conditions.`
 }
 
-
-//I need to generate the installation guide
-function renderInstall(answers) {
-    if(answers.installation === 'Website') {
-        let websiteInfo = `
-        To install this link to your local computer, clone the repository using the SSH link
-        under the drop down Code menu here: \u0060\u0060<a href="https://github.com/${answers.username}/${answers.repository}">Click Me!</a>\u0060\u0060
-        
-        Then double click on the \u0060\u0060index.html\u0060\u0060 file to open it with your browser of choice. 
-        
-        OR
-        
-        Follow the link provided to navigate to the GitHub Pages website available here: \u0060\u0060<a href="https://${answers.username}.github.io/${answers.repository}">Click Me!</a>`
-        return websiteInfo;
-    } else if (answers.installation === 'NodeJs') {
-        let nodeInfo = `To install a Node project, you\u0060ll have to install [Node JS] on to your computer at (https://nodejs.org/).
-        Once that's installed, clone the GitHub repository to your local computer. The repository can be found here: \u0060\u0060<a href="https://github.com/${answers.username}/${answers.repository}">Click Me!</a>\u0060\u0060
-        `
-        return (nodeInfo);
-    } else {
-        let otherInfo = `Clone the GitHub repository to your local computer via this link: \u0060\u0060<a href="https://github.com/${answers.username}/${answers.repository}">Click Me!</a>\u0060\u0060`
-        return (otherInfo);
-    }
-    
-}
 
 // I need to generate the test
-function renderTest(answers) {
+function renderTest(data) {
     let testingInfo = 'No test was written for this project.'
-
-    if(answers.Test === 'Yes'){
+    let testingAnswer = data.testing
+    if(testingAnswer === 'Yes'){
         testingInfo = `Running the software is super easy. All you'll have to do is open the terminal in your preferred coding app,
         and while making sure you're in the correct folder, run \u0060\u0060npm install\u0060\u0060 to
         allow the packages to download, then run \u0060\u0060npm run test\u0060\u0060 to run the program in your terminal.
@@ -89,8 +35,14 @@ function renderTest(answers) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+    var licenseBadge = renderLicenseBadge(data.license);
+    var licenseLink = renderLicenseLink(data.license);
+    var licenseSection = renderLicenseSection(data.license)
+    var testRender = renderTest(data.testing)
+
+
   return `# ${data.title}
-  ![License Badge](${renderLicenseBadge()})
+  ![License Badge](${licenseBadge})
 
   ## Description
   ${data.description}
@@ -100,13 +52,13 @@ function generateMarkdown(data) {
     - [Installation](#installation)
     - [Usage](#usage)
     - [Testing](#testing)
-    - [License](#license)
+    - ${licenseLink}
     - [Support](#support)
 
  ## Installation
     ***
     The installation guide is as follows:
-    ${renderInstall(answers)}
+    ${data.installation}
     
 
  ## Usage
@@ -119,17 +71,15 @@ function generateMarkdown(data) {
 
  ## Testing
     ***
-    ${renderTest(answers)}
+    ${testRender}
 
  ## License
     ***
-    This software/code is licensed under ${data.license}.
-    To use this software/code, you must agree to follow and comply with license's Terms and Conditions.
-    A copy of the license can be found at: ${renderLicenseBadge(value)}
+    ${licenseSection}
 
-## Support
-If you have any questions at all about how this program runs, or if something breaks, please don't hesitate to reach me
-either at ${data.email}, or private message me here on GitHub @${data.username}
+ ## Support
+ If you have any questions at all about how this program runs, or if something breaks, please don't hesitate to reach me
+  either at ${data.email}, or private message me here on GitHub @${data.username}.
 `;
 }
 

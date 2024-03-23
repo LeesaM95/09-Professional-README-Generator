@@ -1,6 +1,5 @@
 // TODO: Include packages needed for this application
-
-const inquirer = require('inquirer');
+var inquirer = require('inquirer');
 const fs = require('fs');
 const generateReadMe = require('./utils/generateMarkdown');
 
@@ -17,10 +16,10 @@ const questions = [
             message:'Describe what your project can do specifically. Add context, links, and anything else you may deem important.'
         },
         {
-            type:'list',
+            type:'input',
             name:'installation',
-            message:'What kind of program is your project?',
-            choices: ['Website', 'NodeJs', 'Other']
+            message:'How would someone install your project?',
+
         },
         {
             type:'input',
@@ -44,7 +43,7 @@ const questions = [
             type:'checkbox',
             name:'license',
             message:'What license is being applied?',
-            choices: ['MIT License', 'GNU License v3.0', 'Apache License 2.0', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License', 'Creative Commons v1.0', 'Eclipse Public', 'GNU Affero v3.0', 'GNU Lesser v2.1', 'Mozilla Public', 'The Unlicense License']
+            choices: ['MIT License', 'GNU License v3.0', 'Apache License 2.0', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License', 'Creative Commons v1.0', 'Eclipse Public', 'GNU Affero v3.0', 'GNU Lesser v2.1', 'Mozilla Public', 'The Unlicense License', 'None']
         },
         {
             type:'input',
@@ -66,33 +65,19 @@ const questions = [
     ];   
 
 // TODO: Create a function to write README file
-function writeToFile(questions) {
-    inquirer
-    .prompt(questions)
-    .then(answers => {
-        answers.confirm === answers.password
-        ? console.log('Writing in Process!')
-        : console.log('Wrong Password.')
-
-        console.log(answers)
-
-        const readMeAnswers = generateReadMe(answers)
-
-        fs.writeFile('README.md', readMeAnswers, function (err) {
-            if (err)
-            console.log('could not save');
-            else
-            console.log('File Created!')
-            console.log('Page Created!')
-        })
-    })
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, generateReadMe(data), (err) =>
+    err
+    ? console.log(err)
+    : console.log("Whoohoo! readme file generated!"))
 
 }
 
 // TODO: Create a function to initialize app
-function init() {
-    writeToFile(questions)
+const init = () => {
+    inquirer.prompt(questions).then((answers) => {writeToFile(`./${answers.repository}/${answers.title}`, answers)})
 }
 
 // Function call to initialize app
 init();
+
