@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateReadMe = require('./utils/generateMarkdown');
+const licenses = ['MIT License', 'GNU License v3.0', 'Apache License 2.0', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License', 'Creative Commons v1.0', 'Eclipse Public', 'GNU Affero v3.0', 'GNU Lesser v2.1', 'Mozilla Public', 'The Unlicense License']
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -15,11 +17,6 @@ const questions = [
             message:'Describe what your project can do specifically. Add context, links, and anything else you may deem important.'
         },
         {
-            type:'input',
-            name:'table of contents',
-            message:'create links to the corresponding sections of your README'
-        },
-        {
             type:'list',
             name:'installation',
             message:'What kind of program is your project?',
@@ -32,7 +29,7 @@ const questions = [
         },
         {
             type: 'list',
-            name: 'contributions-check',
+            name: 'contributionsCheck',
             message: 'Can other programmers contribute to your code?',
             choices: ['Yes', 'No']
 
