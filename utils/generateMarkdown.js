@@ -1,52 +1,34 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
-    if(license === 'MIT License'){
-        license = "![License: MIT]https://www.mit.edu/~amini/LICENSE.md"
-    } else if (license === 'GNU License v3.0') {
-        license = "![License: GNU v3.0]https://www.gnu.org/licenses/gpl-3.0.txt";
-    } else if (license === 'Apache License 2.0') {
-        license = "![License: Apace v2.0]https://www.apache.org/licenses/LICENSE-2.0.txt"
-    } else if (license === 'BSD 2-Clause License') {
-        license = "![License: BSD 2-Clause]https://opensource.org/license/bsd-2-clause";
-    } else if (license === 'BSD 3-Clause License') {
-        license = "![License: BSD 3-Clause]https://opensource.org/license/bsd-3-clause"
-    } else if (license === 'Boost Software License') {
-        license = "![License: Boost Software]https://www.boost.org/LICENSE_1_0.txt"
-    } else if (license === 'Creative Commons v1.0') {
-        license = "![License: Creative Commons]https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt"
-    } else if (license === 'Eclipse Public') {
-        license = "![License: Eclipse]https://www.eclipse.org/legal/epl-v10.html"
-    } else if (license === 'GNU Affero v3.0') {
-        license = "![License: GNU Affero]https://www.gnu.org/licenses/agpl-3.0.txt"
-    } else if (license === 'GNU Lesser v2.1') {
-        license = "![License: GNU Lesser]https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt"
-    } else if (license === 'Mozilla Public') {
-        license = "![License: Mozilla Public]https://www.mozilla.org/en-US/MPL/2.0/"
-    } else if (license === 'The Unlicense License') {
-        license = "![License: The Unlicense]https://choosealicense.com/licenses/unlicense/"
+function renderLicenseBadge() {
+let value = `${data.license}`;
+    if(value === 'MIT License'){
+        return "![License: MIT]https://www.mit.edu/~amini/LICENSE.md"
+    } else if (value === 'GNU License v3.0') {
+        return "![License: GNU v3.0]https://www.gnu.org/licenses/gpl-3.0.txt";
+    } else if (value === 'Apache License 2.0') {
+        return "![License: Apace v2.0]https://www.apache.org/licenses/LICENSE-2.0.txt"
+    } else if (value === 'BSD 2-Clause License') {
+        return "![License: BSD 2-Clause]https://opensource.org/license/bsd-2-clause";
+    } else if (value === 'BSD 3-Clause License') {
+        return "![License: BSD 3-Clause]https://opensource.org/license/bsd-3-clause"
+    } else if (value === 'Boost Software License') {
+        return "![License: Boost Software]https://www.boost.org/LICENSE_1_0.txt"
+    } else if (value === 'Creative Commons v1.0') {
+        return "![License: Creative Commons]https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt"
+    } else if (value === 'Eclipse Public') {
+        return "![License: Eclipse]https://www.eclipse.org/legal/epl-v10.html"
+    } else if (value === 'GNU Affero v3.0') {
+        return "![License: GNU Affero]https://www.gnu.org/licenses/agpl-3.0.txt"
+    } else if (value === 'GNU Lesser v2.1') {
+        return "![License: GNU Lesser]https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt"
+    } else if (value === 'Mozilla Public') {
+        return "![License: Mozilla Public]https://www.mozilla.org/en-US/MPL/2.0/"
+    } else if (value === 'The Unlicense License') {
+        return "![License: The Unlicense]https://choosealicense.com/licenses/unlicense/"
     } else {
-        license = "";
+        value = "";
     }
-    return (license);
-}
-
-
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-    let licenseText;
-
-    if(!license) {
-        licenseText = `This software/code is licensed under ${license}.
-        To use this software/code, you must agree to follow and comply with license's Terms and Conditions.
-        A copy of the license can be found at: ${renderLicenseBadge(license)}`
-    }
-    else {
-        licenseText = 'Unlicensed'
-    }
-    return (licenseText);
 }
 
 
@@ -90,21 +72,10 @@ function renderTest(answers) {
 }
 
 
-// I need to register the contributions
-function renderContributions(answers) {
-    let contribute = [answers.contributions];
-    if(answers.contributionsCheck === 'Yes') {
-        return contribute;
-    } else {
-        return [];
-    }
-}
-
-
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-  ![License Badge](${renderLicenseBadge(license)})
+  ![License Badge](${renderLicenseBadge()})
 
   ## Description
   ${data.description}
@@ -129,7 +100,7 @@ function generateMarkdown(data) {
 
 ## Contributing
     ***
-    ${renderContributions(answers)}
+    ${data.contributions}
 
  ## Testing
     ***
@@ -137,8 +108,9 @@ function generateMarkdown(data) {
 
  ## License
     ***
-    This application is covered under the ${data.license}.
-    ${renderLicenseSection(license)}
+    This software/code is licensed under ${data.license}.
+    To use this software/code, you must agree to follow and comply with license's Terms and Conditions.
+    A copy of the license can be found at: ${renderLicenseBadge(value)}
 
 ## Support
 If you have any questions at all about how this program runs, or if something breaks, please don't hesitate to reach me

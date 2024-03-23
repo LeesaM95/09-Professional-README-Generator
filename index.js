@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateReadMe = require('./utils/generateMarkdown');
-const licenses = ['MIT License', 'GNU License v3.0', 'Apache License 2.0', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License', 'Creative Commons v1.0', 'Eclipse Public', 'GNU Affero v3.0', 'GNU Lesser v2.1', 'Mozilla Public', 'The Unlicense License']
+const license = ['MIT License', 'GNU License v3.0', 'Apache License 2.0', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License', 'Creative Commons v1.0', 'Eclipse Public', 'GNU Affero v3.0', 'GNU Lesser v2.1', 'Mozilla Public', 'The Unlicense License']
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -28,13 +28,6 @@ const questions = [
             message:'Show the expected output of your project if you can. Add examples if possible.'
         },
         {
-            type: 'list',
-            name: 'contributionsCheck',
-            message: 'Can other programmers contribute to your code?',
-            choices: ['Yes', 'No']
-
-        },
-        {
             type: 'input',
             name: 'contributions',
             message: 'How can a fellow programmer contribute to your project?'
@@ -51,7 +44,7 @@ const questions = [
             type:'checkbox',
             name:'license',
             message:'What license is being applied?',
-            choices: licenses
+            choices: license
         },
         {
             type:'input',
