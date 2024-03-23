@@ -1,33 +1,48 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge() {
+function renderLicenseBadge(data) {
 let value = `${data.license}`;
+console.log(data.license)
+let licenseLink = '';
     if(value === 'MIT License'){
-        return "![License: MIT]https://www.mit.edu/~amini/LICENSE.md"
+        value = 'MIT License'
+        licenseLink = "![License: MIT]https://www.mit.edu/~amini/LICENSE.md"
     } else if (value === 'GNU License v3.0') {
-        return "![License: GNU v3.0]https://www.gnu.org/licenses/gpl-3.0.txt";
+        value = 'GNU License v3.0'
+        licenseLink = "![License: GNU v3.0]https://www.gnu.org/licenses/gpl-3.0.txt";
     } else if (value === 'Apache License 2.0') {
-        return "![License: Apace v2.0]https://www.apache.org/licenses/LICENSE-2.0.txt"
+        value = 'Apache License 2.0'
+        licenseLink = "![License: Apace v2.0]https://www.apache.org/licenses/LICENSE-2.0.txt"
     } else if (value === 'BSD 2-Clause License') {
-        return "![License: BSD 2-Clause]https://opensource.org/license/bsd-2-clause";
+        value = 'BSD 2-Clause License'
+        licenseLink = "![License: BSD 2-Clause]https://opensource.org/license/bsd-2-clause";
     } else if (value === 'BSD 3-Clause License') {
-        return "![License: BSD 3-Clause]https://opensource.org/license/bsd-3-clause"
+        value = 'BSD 3-Clause License'
+        licenseLink = "![License: BSD 3-Clause]https://opensource.org/license/bsd-3-clause"
     } else if (value === 'Boost Software License') {
-        return "![License: Boost Software]https://www.boost.org/LICENSE_1_0.txt"
+        value = 'Boost Software License'
+        licenseLink = "![License: Boost Software]https://www.boost.org/LICENSE_1_0.txt"
     } else if (value === 'Creative Commons v1.0') {
-        return "![License: Creative Commons]https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt"
+        value = 'Creative Commons v1.0'
+        licenseLink ="![License: Creative Commons]https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt"
     } else if (value === 'Eclipse Public') {
-        return "![License: Eclipse]https://www.eclipse.org/legal/epl-v10.html"
+        value = 'Eclipse Public'
+        licenseLink = "![License: Eclipse]https://www.eclipse.org/legal/epl-v10.html"
     } else if (value === 'GNU Affero v3.0') {
-        return "![License: GNU Affero]https://www.gnu.org/licenses/agpl-3.0.txt"
+
+        licenseLink = "![License: GNU Affero]https://www.gnu.org/licenses/agpl-3.0.txt"
     } else if (value === 'GNU Lesser v2.1') {
-        return "![License: GNU Lesser]https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt"
+        value = 'GNU Lesser v2.1'
+        licenseLink = "![License: GNU Lesser]https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt"
     } else if (value === 'Mozilla Public') {
-        return "![License: Mozilla Public]https://www.mozilla.org/en-US/MPL/2.0/"
+        value = 'Mozilla Public'
+        licenseLink = "![License: Mozilla Public]https://www.mozilla.org/en-US/MPL/2.0/"
     } else if (value === 'The Unlicense License') {
-        return "![License: The Unlicense]https://choosealicense.com/licenses/unlicense/"
+        value = 'The Unlicense License'
+        licenseLink = "![License: The Unlicense]https://choosealicense.com/licenses/unlicense/"
     } else {
         value = "";
+        licenseLink = ""
     }
 }
 
