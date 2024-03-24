@@ -10,6 +10,7 @@
   ## Table of Contents
     - [Description](#description)
     - [Installation](#installation)
+    - [Visuals](#visuals)
     - [Usage](#usage)
     - [Testing](#testing)
     - [License](#MIT)
@@ -20,6 +21,9 @@
     The installation guide is as follows:
     This application runs on NodeJS, so it's important to have the Node program already installed on to your preferred device. Once that's done, the user will have to clone this repository on to their machine and run an 'npm install' command inside of their console to make sure all relevant npm packages are available. Make sure to open the console of the correct folder, otherwise the programs won't install and you'll receive an error message. Once those two steps are complete, all a user will need to do is run the 'node index.js' command and got from there. > **Be aware that the command must be entered exactly as it shows. the .js at the end of the folder name makes sure that Node reads and runs the require command. That makes sure the packages run between JavaScript files. Otherwise you'll keep getting the frustrating *require not defined* error message.
     
+ ## Visuals
+    ***
+    Here is the link to the YouTube video where the Generator Demonstration is being hosted: <a href="https://youtu.be/JJzodeF5okY" />
 
  ## Usage
     ***
