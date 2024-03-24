@@ -43,7 +43,7 @@ const questions = [
             type:'checkbox',
             name:'license',
             message:'What license is being applied?',
-            choices: ['MIT License', 'GNU License v3.0', 'Apache License 2.0', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License', 'Creative Commons v1.0', 'Eclipse Public', 'GNU Affero v3.0', 'GNU Lesser v2.1', 'Mozilla Public', 'The Unlicense License', 'None']
+            choices: ['MIT', 'GPlv3', 'Apache_2.0', 'BSD_2--Clause', 'BSD_3--Clause', 'Boost_1.0', 'CC0_1.0', 'EPL_1.0', 'AGPL_v3', 'GPL_v2', 'MPL_2.0', 'Unlicense', 'None']
         },
         {
             type:'input',
@@ -75,7 +75,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 const init = () => {
-    inquirer.prompt(questions).then((answers) => {writeToFile(`./${answers.repository}/${answers.title}`, answers)})
+    inquirer.prompt(questions).then((answers) => {writeToFile(`./${answers.title}`, answers)})
 }
 
 // Function call to initialize app

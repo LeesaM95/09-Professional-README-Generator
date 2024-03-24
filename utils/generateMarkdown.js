@@ -1,22 +1,3 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-const renderLicenseBadge = (license) => {
-    license === 'None'
-    ? ""
-    : `![License](https://img.shielfs.io/badge/license-${license}-blue.svg)`;
-};
-
-const renderLicenseLink = (license) => {
-    license === 'None' ? "" : `[License](#license)`
-};
-
-const renderLicenseSection = (license) => {
-    license === 'None'
-    ? ""
-    : `This software/code is licensed under ${license}.
-    To use this software/code, you must agree to follow and comply with license's Terms and Conditions.`
-}
-
 
 // I need to generate the test
 function renderTest(data) {
@@ -35,14 +16,12 @@ function renderTest(data) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-    var licenseBadge = renderLicenseBadge(data.license);
-    var licenseLink = renderLicenseLink(data.license);
-    var licenseSection = renderLicenseSection(data.license)
     var testRender = renderTest(data.testing)
 
 
   return `# ${data.title}
-  ![License Badge](${licenseBadge})
+  
+  [![License: ${data.license}](https://img.shields.io/badge/License-${data.license}-brightgreen.svg)](https://opensource.org/licenses/${data.license})\n\n
 
   ## Description
   ${data.description}
@@ -52,7 +31,7 @@ function generateMarkdown(data) {
     - [Installation](#installation)
     - [Usage](#usage)
     - [Testing](#testing)
-    - ${licenseLink}
+    - [License](#${data.license})
     - [Support](#support)
 
  ## Installation
@@ -75,7 +54,8 @@ function generateMarkdown(data) {
 
  ## License
     ***
-    ${licenseSection}
+    This software/code is licensed under ${data.license}. 
+    To use this software/code, you must agree to follow and comply with license's Terms and Conditions.
 
  ## Support
  If you have any questions at all about how this program runs, or if something breaks, please don't hesitate to reach me

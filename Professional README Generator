@@ -1,0 +1,43 @@
+# Professional README Generator
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+
+
+  ## Description
+  This application can generate a clean, professional ReadMe file on the user's behalf. Using the console of your preferred coding program, a user can answer the prompted questions and receive a README.md file ready for use.
+
+  ## Table of Contents
+    - [Description](#description)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Testing](#testing)
+    - [License](#MIT)
+    - [Support](#support)
+
+ ## Installation
+    ***
+    The installation guide is as follows:
+    This application runs on NodeJS, so it's important to have the Node program already installed on to your preferred device. Once that's done, the user will have to clone this repository on to their machine and run an 'npm install' command inside of their console to make sure all relevant npm packages are available. Make sure to open the console of the correct folder, otherwise the programs won't install and you'll receive an error message. Once those two steps are complete, all a user will need to do is run the 'node index.js' command and got from there. > **Be aware that the command must be entered exactly as it shows. the .js at the end of the folder name makes sure that Node reads and runs the require command. That makes sure the packages run between JavaScript files. Otherwise you'll keep getting the frustrating *require not defined* error message.
+    
+
+ ## Usage
+    ***
+    When the node command is executed within the terminal, the application will generate a series of questions that the user will have to answer regarding their project. After the questions have been answered, those responses will be compiled by the application and generated into a professional ReadMe with proper markdown language and structure. Please keep in mind that not all of the ReadMe sections are available in this application. Only the most commonly used sections have been coded in, so if more sections need to be added, they must be added manually by the user.
+
+## Contributing
+    ***
+    While I love contributors, I feel as if this project has no need of extra help. However, I'm always open to suggestions and helpful tips on how to make my coding better.
+
+ ## Testing
+    ***
+    No test was written for this project.
+
+ ## License
+    ***
+    This software/code is licensed under MIT. 
+    To use this software/code, you must agree to follow and comply with license's Terms and Conditions.
+
+ ## Support
+ If you have any questions at all about how this program runs, or if something breaks, please don't hesitate to reach me
+  either at leesamarie95@gmail.com, or private message me here on GitHub @LMarie95.

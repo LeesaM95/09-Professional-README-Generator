@@ -1,0 +1,39 @@
+# Professional README Generator
+  ![License Badge](undefined)
+
+  ## Description
+  This application can generate a clean, professional ReadMe on your behalf. Using the console of your preferred coding program, a user can answer the prompted questions and received a README file ready for use.
+
+  ## Table of Contents
+    - [Description](#description)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Testing](#testing)
+    - undefined
+    - [Support](#support)
+
+ ## Installation
+    ***
+    The installation guide is as follows:
+    This application runs through NodeJS, so it's important to have the Node program already installed on to your device. Once that's done, the user will have to clone this repository onto their machine and run an 'npm install' command inside their console to make sure all the relevant npm packages are available. Once those two steps are complete, all a user will need to do is run the 'node index.js' command and go from there.
+    
+
+ ## Usage
+    ***
+    When the 'node index.js' command is run in the user's console, the application will generate a series of questions that the user will have to answer regarding their project. After the questions have been answered, those answers will be compiled by the application and generated into a professional README with proper markdown language and structure. Please keep in mind that not all of the README sections are in the application, as only the most commonly used sections are auto-generated. If more sections need to be added, they must be typed in manually.
+
+## Contributing
+    ***
+    While I love contributors, I feel as if this project has no need of extra help. However, I am always open to constructive criticism and suggestions on how to tidy up my coding.
+
+ ## Testing
+    ***
+    No test was written for this project.
+
+ ## License
+    ***
+    undefined
+
+ ## Support
+ If you have any questions at all about how this program runs, or if something breaks, please don't hesitate to reach me
+  either at leesamarie95@gmail.com, or private message me here on GitHub @LMarie95.

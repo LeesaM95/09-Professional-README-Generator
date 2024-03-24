@@ -1,0 +1,39 @@
+# Professional-ReadMe-Generator
+  ![License Badge](MIT License)
+
+  ## Description
+  This application can generate a clean, properly structures, professional README document on behalf of the user. Using the console of a preferred coding program, a user can answer a series of prompted questions and receive a readme file within their folder ready for use.
+
+  ## Table of Contents
+    - [Description](#description)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Testing](#testing)
+    - [License](#license)
+    - [Support](#support)
+
+ ## Installation
+    ***
+    The installation guide is as follows:
+    This application runs through NodeJS, so it's important to have the Node program already installed on your device. Once that's done, the repository that hosts this application will have to be clones on to the user's machine. Navigating to the folder, the user will have to open up their terminal for **this folder** and run an 'npm install' to ensure that all the npm packages needed for this application are available. After the packages have been installed, the user must run 'node index.js' to begin the program. Note: It's *extremely* important that the node command is run exactly like that, otherwise the user will get an error message reading that 'require is undefined', which makes the entire application halt its run.
+    
+
+ ## Usage
+    ***
+    When 'node index.js' has been entered into the user's console, the application will generate a series of questions that the user will have to answer regarding their project. After the questions have been answered, those answers will be compiled by the application and generated into a prfessional README with proper markdown language and structure. Please keep in mind that not all of the sections in a typical README are in this application, as only the most commonly used sections have been coded in. Should a user need other sections, those will have to be entered manually.
+
+## Contributing
+    ***
+    While I love contributors, I think this particular project will be fine without extra hands. I do, however, always accept suggestions and helpful tips on how to improve as a programmer.
+
+ ## Testing
+    ***
+    No test was written for this project.
+
+ ## License
+    ***
+    undefined
+
+ ## Support
+ If you have any questions at all about how this program runs, or if something breaks, please don't hesitate to reach me
+  either at leesamarie95@gmail.com, or private message me here on GitHub @LMarie96.
